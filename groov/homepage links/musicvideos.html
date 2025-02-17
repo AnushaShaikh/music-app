@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groov - Music Videos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(135deg, #f0f0f0, #ffffff);
+            color: #333;
+        }
+        .sidebar {
+            width: 250px;
+            background: #ffffff;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            left: 0;
+        }
+        .sidebar.hidden {
+            transform: translateX(-250px);
+        }
+        .sidebar h2 {
+            color: #1DB954;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .sidebar ul li:hover {
+            background: #e0e0e0;
+            border-radius: 5px;
+        }
+        .sidebar ul li a:hover {
+            color: #1DB954;
+        }
+        .toggle-btn {
+            position: fixed;
+            left: 220px;
+            top: 16px;
+            background: #00000000;
+            color: #000000;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1000;
+            transition: transform 0.3s ease, left 0.3s ease;
+        }
+
+        .sidebar.hidden ~ .toggle-btn {
+            left: 20px;
+        }
+        
+        .content {
+            margin-left: 250px;
+            flex-grow: 1;
+            padding: 50px;
+            transition: margin-left 0.3s ease;
+            width: calc(100% - 250px);
+        }
+        .content.expanded {
+            margin-left: 0;
+            width: 100%;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 400px;
+            height: 225px;
+            border-radius: 10px;
+        }
+
+        .description {
+            margin-top: 30px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <h2>Groov</h2>
+        <ul>
+            <li><a href="../homepage.html">Home</a></li>
+            <li><a href="playlist.html">Playlists</a></li>
+            <li><a href="artist.html">Artists</a></li>
+            <li><a href="album.html">Albums</a></li>
+            <li><a href="musicvideos.html">Music Videos</a></li>
+        </ul>
+    </div>
+    <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">☰</button>
+    
+    <div class="content" id="content">
+        <div class="header">
+            <h1>Music Videos</h1>
+        </div>
+        <p>Here you will find all your favorite music videos.</p><br>
+
+        <!-- Video Embed Section -->
+        <div class="video-container">
+            <!-- Video 1 -->
+            <iframe src="coke-studio-pakistan--season-15--faris-shafi-x-umair-butt-x-gharwi-group---blockbuster.mp4" title="Music Video 1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+            <!-- Video 2 -->
+            <iframe src="icc-mens-champions-trophy-2025---official-event-song--atif-aslam---jeeto-baazi-khel-ke.mp4" title="Music Video 2" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <!-- Video 3 -->
+            <iframe src="ntr-ram-charan--m-m-kreem--ss-rajamouli--vishal-mishra--rahul---naacho-naacho-full-video-rrr.mp4" title="Music Video 3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <!-- Video 4 -->
+            <iframe src="One Direction - Night Changes.mp4" title="Music Video 4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var content = document.getElementById("content");
+            var toggleBtn = document.getElementById("toggleBtn");
+
+            sidebar.classList.toggle("hidden");
+            content.classList.toggle("expanded");
+        }
+    </script>
+</body>
+</html>
